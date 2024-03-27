@@ -1,0 +1,76 @@
+{
+  "name": "ipsamesse",
+  "version": "1.0.0",
+  "main": "dist/src/index.js",
+  "description": "A type-safe way to emulate tail-call optimization with trampolines",
+  "types": "dist/src/index.d.ts",
+  "author": "LavonneParisian",
+  "license": "MIT",
+  "keywords": [
+    "trampoline",
+    "recursion",
+    "est",
+    "typesafe",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DiamondMarquardt/ipsamesse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DiamondMarquardt/ipsamesse.git/issues"
+  },
+  "homepage": "https://github.com/DiamondMarquardt/ipsamesse.git",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "{src,test}/**/*.ts": [
+      "tslint --fix",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      "@semantic-release/changelog",
+      "@semantic-release/github"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "@semantic-release/changelog": "^3.0.2",
+    "@semantic-release/commit-analyzer": "^6.1.0",
+    "@semantic-release/github": "^5.2.10",
+    "@semantic-release/npm": "^5.1.4",
+    "@semantic-release/release-notes-generator": "^7.1.4",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^8.10.46",
+    "conditional-type-checks": "^1.0.0",
+    "coveralls": "^3.0.3",
+    "husky": "^2.1.0",
+    "jest": "^24.7.1",
+    "lint-staged": "^8.1.5",
+    "semantic-release": "^15.13.3",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.4"
+  },
+  "dependencies": {}
+}
